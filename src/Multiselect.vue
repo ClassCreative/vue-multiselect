@@ -68,6 +68,8 @@
           class="multiselect__input"
           :aria-controls="'listbox-'+id"
         />
+        <button v-if="internalValue.length"
+                class="multiselect__clear" @click.prevent="clear"></button>
         <span
           v-if="isSingleLabelVisible"
           class="multiselect__single"
@@ -375,6 +377,50 @@ export default {
 <style>
 fieldset[disabled] .multiselect {
   pointer-events: none;
+}
+
+.multiselect__clear {
+  appearance: none;
+  box-shadow: none;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  outline: none;
+  position: absolute;
+  right: 30px;
+  top: 1px;
+  width: 30px;
+  height: 38px;
+  background: none;
+  display: block;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  z-index: 3;
+}
+
+.multiselect__clear:before,
+.multiselect__clear:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 3px;
+  height: 16px;
+  background: #aaa;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.multiselect__clear:before {
+  transform: rotate(45deg)
+}
+
+.multiselect__clear:after {
+  transform: rotate(-45deg)
 }
 
 .multiselect__spinner {

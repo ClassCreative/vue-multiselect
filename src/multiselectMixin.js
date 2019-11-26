@@ -709,6 +709,14 @@ export default {
         this.preferredOpenDirection = 'above'
         this.optimizedHeight = Math.min(spaceAbove - 40, this.maxHeight)
       }
+    },
+
+    clear () {
+      if(Array.isArray(this.value)) {
+        this.value.splice(0, this.value.length);
+      } else {
+        this.value = null;
+      }
     }
   }
 }

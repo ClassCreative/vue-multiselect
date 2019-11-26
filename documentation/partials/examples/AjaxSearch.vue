@@ -28,7 +28,7 @@ div
         span {{ option.name }}
         span.custom__remove(@click="remove(option)") ❌
     template(slot="clear", slot-scope="props")
-      div.multiselect__clear(
+      div.multiselect__clearall(
         v-if="selectedCountries.length",
         @mousedown.prevent.stop="clearAll(props.search)"
       )
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="sass">
-.multiselect__clear
+.multiselect__clearall
   position: absolute
   right: 41px
   height: 40px
