@@ -712,10 +712,12 @@ export default {
     },
 
     clear () {
-      if(Array.isArray(this.value)) {
-        this.value.splice(0, this.value.length);
+      if (Array.isArray(this.value)) {
+        this.value.splice(0, this.value.length)
+        this.$emit('input', [], this.id)
       } else {
-        this.value = null;
+        this.$emit('input', null, this.id)
+        this.value = null
       }
     }
   }
